@@ -1,3 +1,5 @@
+import * as THREE from 'three'
+
 //Scene
 const scene = new THREE.Scene()
 
@@ -67,3 +69,20 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
+
+/**
+ * Animate
+ */
+const tick = () =>
+{
+    // Update objects
+    mesh.rotation.y += 0.01
+
+    // Render
+    renderer.render(scene, camera)
+
+    // Call tick again on the next frame
+    window.requestAnimationFrame(tick)
+}
+
+tick()
