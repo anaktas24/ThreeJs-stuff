@@ -1,11 +1,50 @@
 //Scene
 const scene = new THREE.Scene()
 
+/**
+ * Axes Helper
+ */
+const axesHelper = new THREE.AxesHelper(2)
+scene.add(axesHelper)
+
+
+// Making a group
+
+const group = new THREE.Group()
+scene.add(group)
+
 //Red Cube
-const geometry = new THREE.BoxGeometry(1,1,1)
-const material = new THREE.MeshBasicMaterial({color: 0xff0000})
-const mesh = new THREE.Mesh(geometry, material)
-scene.add(mesh)
+const redCube = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ color: 0xff0000 })
+)
+redCube.position.set(0.3,-0.8,1) //position
+redCube.scale.set(2,0.25,0.5) //scale
+redCube.rotation.x = Math.PI * 0.25
+redCube.rotation.z = Math.PI * 0.75
+group.add(redCube)
+
+//Blue Cube
+const blueCube = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ color: 0x000FF})
+)
+blueCube.position.set(0.8,-0.8,1) //position
+blueCube.scale.set(2,0.25,0.5) //scale
+blueCube.rotation.x = Math.PI * 0.25
+blueCube.rotation.z = Math.PI * 0.75
+group.add(blueCube)
+
+//goldCube
+const goldCube = new THREE.Mesh(
+  new THREE.BoxGeometry(1, 1, 1),
+  new THREE.MeshBasicMaterial({ color: 0xffd700})
+)
+goldCube.position.set(-0.8,-0.8,1) //position
+goldCube.rotation.x = Math.PI * 0.25
+goldCube.rotation.z = Math.PI * 0.75
+group.add(goldCube)
+
 
 //Sizes
 const sizes = {
@@ -17,6 +56,7 @@ const sizes = {
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
 camera.position.z = 3
 scene.add(camera)
+camera.lookAt(new THREE.Vector3(0, - 1, 0))
 
 //Canvas
 const canvas = document.querySelector('canvas.webgl')
