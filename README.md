@@ -14,4 +14,5 @@ Changing the scale, position, rotation using the coordination system x,y,z.<br>
 
 <h1>Lesson 3: Simple Animation</h1>
 There are some ways to animate. Either with Native Js or a library like gasp.<br>
+
 ![Lesson 3](https://github.com/anaktas24/ThreeJs-stuff/assets/72883899/e307d47a-9e81-4f0b-8fe4-a1dd19e7469b)
